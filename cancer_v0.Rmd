@@ -1,0 +1,41 @@
+---
+title: "Cancer data analysis"
+author: "H Qin"
+date: "10/24/2017"
+output: html_document
+---
+
+https://think.cs.vt.edu/corgis/csv/cancer/cancer.html
+
+```{r}
+rm(list=ls())
+list.files()
+```
+
+
+```{r}
+tb = read.csv("cancer.csv")
+summary(tb)
+```
+
+Need to explain these variables here .
+
+rae bias? 
+```{r}
+m= lm(tb$Age.Adjusted.Rate~tb$Race);
+summary(m)
+plot( tb$Age.Adjusted.Rate ~ tb$Race)
+
+```
+
+gender bias? 
+```{r}
+m= lm(tb$Age.Adjusted.Rate ~ tb$Sex);
+summary(m)
+plot( tb$Age.Adjusted.Rate ~ tb$Sex)
+```
+
+To do: 
+plot the cancer rate in USA map? 
+see https://cran.r-project.org/web/packages/fiftystater/vignettes/fiftystater.html
+
